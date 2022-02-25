@@ -1,0 +1,73 @@
+html, body {
+  height: 100vh;
+  width: 100vw
+}
+$blue: blue;
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  #blue {
+    background-color: $blue;
+    height: 10%;
+    width: 100%;
+  }
+
+  #room-cont {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+
+    #left-of-room {
+      height: 80%;
+      width: 10%;
+      background-color: red;
+    }
+    
+    #room {
+      background: url(/JavaScript-Project/public/images/Room1_edit.png) center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      
+      background-size: cover;
+    
+      height: 70%;
+      width: 70%;
+
+        #piano {
+          position: absolute;
+          height: 150px;
+          width: 180px;
+          top: 70%;
+          left: 400px;
+        }
+
+        #clock {
+          height: 150px;
+          width: 180px;
+        }
+    }
+  }
+}
+
+
+
+
+
+/* .img1 {
+  position: relative;
+  top: 20%;
+  left: 0;
+}
+
+.img2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 300px;
+  left: 500px;
+}  */
