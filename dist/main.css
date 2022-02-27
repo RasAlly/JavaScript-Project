@@ -8,44 +8,139 @@ html, body {
 
 body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  background-color: #380000;
+  opacity: 0.9;
+}
+body h2 {
+  display: relative;
+  font-size: 4vw;
+  font-family: fantasy;
+  width: 29%;
+  height: 29%;
+  background-color: rgba(0, 0, 0, 0.945);
+  -webkit-text-stroke: 0.3vw green;
+  text-transform: uppercase;
+}
+body h2::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #9f9f9f;
+  -webkit-text-stroke: 0vw green;
+  overflow: hidden;
+  animation: animate 3.8s linear infinite;
+}
+@keyframes animate {
+  0%, 10%, 100% {
+    width: 0;
+  }
+  70% {
+    width: 25%;
+  }
 }
 body #blue {
-  background-color: blue;
+  display: flex;
+  flex-direction: row;
   height: 10%;
   width: 100%;
+}
+body #blue #title-background {
+  background-color: yellowgreen;
+  width: 20%;
+  height: 20%;
 }
 body #room-cont {
   display: flex;
   height: 100%;
   width: 100%;
   align-items: center;
-  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
 }
 body #room-cont #left-of-room {
-  height: 80%;
-  width: 10%;
-  background-color: red;
+  height: 55%;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 11%;
+  background-color: #3a3b3b;
+  border-radius: 22%;
 }
 body #room-cont #room {
-  background: url(/JavaScript-Project/public/images/Room1_edit.png) center center;
+  background: url(/JavaScript-Project/public/images/beat_machine_rooms/Room1_blue_border_scheme.png) center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 70%;
-  width: 70%;
-}
-body #room-cont #room #piano {
   position: absolute;
-  height: 150px;
-  width: 180px;
-  top: 70%;
-  left: 400px;
+  height: 75%;
+  width: 68%;
+  top: 15%;
+  left: 21%;
+  border-radius: 4%;
 }
 body #room-cont #room #clock {
-  height: 150px;
-  width: 180px;
+  position: absolute;
+  height: 10.5%;
+  width: 4%;
+  top: 39%;
+  left: 4%;
+  cursor: pointer;
+}
+body #room-cont #room #lamp_desk {
+  height: 40%;
+  width: 31%;
+  position: absolute;
+  top: 71%;
+  left: 5%;
+}
+body #room-cont #room #lamp {
+  height: 10%;
+  width: 5%;
+  position: absolute;
+  top: 74%;
+  left: 7%;
+  cursor: pointer;
+}
+body #room-cont #room #pool-table {
+  height: 31%;
+  width: 32%;
+  position: absolute;
+  top: 68%;
+  left: 62%;
+  cursor: pointer;
+  transform: rotate(-2deg);
+}
+body #room-cont #room #board-game {
+  height: 6%;
+  width: 11%;
+  position: absolute;
+  top: 78%;
+  left: 15%;
+  cursor: pointer;
+}
+body #room-cont #room #bean-bag {
+  height: 16%;
+  width: 17%;
+  position: absolute;
+  top: 79%;
+  left: 36%;
+  cursor: pointer;
+}
+body #room-cont #room #window {
+  height: 35%;
+  width: 16%;
+  position: absolute;
+  top: 27%;
+  left: 47%;
 }
 
 /* .img1 {
