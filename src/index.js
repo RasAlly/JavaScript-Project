@@ -19,19 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // }
   // waitTime();
 
-  localStorage.setItem('isPlayingCheck', null)
 
   localStorage.setItem('duration', 0)
-  let counter = 0;
-  let i = setInterval(function(){
-    console.log(counter)
+  // let counter = 0;
+  // let timer = setInterval(function(start){
     
-    counter += 1;
-      if(counter === 7) {
-        console.log(counter);
-        counter = 0;
-       return i;
-      }
-  }, 1057.5);
+  //   start += 1;
+  //     if(start === 7) {
+  //       console.log(start);
+  //       start = 0;
+  //      return i;
+  //     }
+  // }, 1057.5);
   localStorage.setItem('isPlayingCount', 0);
 });

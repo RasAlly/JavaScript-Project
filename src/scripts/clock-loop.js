@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Clock.addEventListener('click', () => {
     // debugger
     if (clockAudio.paused) {
+
       if (parseInt(localStorage.getItem('isPlayingCount')) === 0) {
         clockAudio.play();
         clockAudio.loop = true;
