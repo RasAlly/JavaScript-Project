@@ -1,21 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // clock
+  // board
   const Board = document.getElementById('board-game');
   const boardAudio = new Audio('./public/music/bass.wav');
-
-  let boardCount = 0;
+  
 
   Board.addEventListener('click', () => {
-    
-    if (boardCount === 0) {
-      boardAudio.play();
-      boardAudio.loop = true;
-      boardCount = 1;
-      return;
-    } 
+    // debugger
+    if (boardAudio.paused) {
+
+      if (parseInt(localStorage.getItem('isPlayingCount')) === 0) {
+        boardAudio.play();
+        boardAudio.loop = true;
+        localStorage.setItem('isPlayingCount', parseInt(localStorage.getItem('isPlayingCount')) + 1);
+        return;
+      } else {
+        setTimeout(() => {
+          boardAudio.play();
+          boardAudio.loop = true;
+          localStorage.setItem('isPlayingCount', parseInt(localStorage.getItem('isPlayingCount')) + 1);
+          return;
+        }, (7 - parseInt(localStorage.getItem('duration'))) * 1057.5);
+      }
+    }
 
     boardAudio.pause();
-    boardCount = 0;
+
+    boardAudio.currentTime = 0;
+
+    if (parseInt(localStorage.getItem('isPlayingCount')) !== 0) {
+      localStorage.setItem('isPlayingCount', parseInt(localStorage.getItem('isPlayingCount')) - 1);
+    }
+    
   });
 
   // window

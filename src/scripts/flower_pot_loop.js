@@ -1,37 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // lamp
-  const Lamp = document.getElementById('lamp');
-  const lampAudio = new Audio('./public/music/flutev2.wav');
+  // pool
+  const Flower = document.getElementById('flower-pot');
+  const flowerAudio = new Audio('./public/music/piano7sec.wav');
+
   
-
-  Lamp.addEventListener('click', () => {
+  Flower.addEventListener('click', () => {
     // debugger
-    if (lampAudio.paused) {
-
+    
+    if (flowerAudio.paused) {
       if (parseInt(localStorage.getItem('isPlayingCount')) === 0) {
-        lampAudio.play();
-        lampAudio.loop = true;
+        flowerAudio.play();``
+        flowerAudio.loop = true;
         localStorage.setItem('isPlayingCount', parseInt(localStorage.getItem('isPlayingCount')) + 1);
         return;
       } else {
         setTimeout(() => {
-          lampAudio.play();
-          lampAudio.loop = true;
+          flowerAudio.play();
+          flowerAudio.loop = true;
           localStorage.setItem('isPlayingCount', parseInt(localStorage.getItem('isPlayingCount')) + 1);
           return;
         }, (7 - parseInt(localStorage.getItem('duration'))) * 1057.5);
       }
     }
 
-    lampAudio.pause();
-
-    lampAudio.currentTime = 0;
+    flowerAudio.pause();
+    
+    flowerAudio.currentTime = 0;
 
     if (parseInt(localStorage.getItem('isPlayingCount')) !== 0) {
       localStorage.setItem('isPlayingCount', parseInt(localStorage.getItem('isPlayingCount')) - 1);
     }
-    
   });
-
+  // let isPlay = function() {
+  //   return !flowerAudio.paused;
+  // }
+  
+  
   // window
 });
+
+
+

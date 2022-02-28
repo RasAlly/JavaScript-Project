@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
           clockAudio.loop = true;
           localStorage.setItem('isPlayingCount', parseInt(localStorage.getItem('isPlayingCount')) + 1);
           return;
-        }, 3000);
+        }, (7 - parseInt(localStorage.getItem('duration'))) * 1057.5);
       }
     }
 
