@@ -1,38 +1,123 @@
-import './scripts/flower_pot_loop.js'
-import './scripts/clock-loop.js'
-import './scripts/lava_lamp_loop.js'
-import './scripts/chair_loop.js'
-import './scripts/board_game_loop.js'
-
 document.addEventListener("DOMContentLoaded", () => {
-  // debugger
+  const audios = [];
 
-  localStorage.setItem('isPlayingCount', 0);
+  const Clock = document.getElementById('clock');
+  const clockAudio = new Audio('./public/music/drumsv2.wav');
+
+  const Flower = document.getElementById('flower-pot');
+  const flowerAudio = new Audio('./public/music/piano7sec.wav');
+
+  const Chair = document.getElementById('chair');
+  const chairAudio = new Audio('./public/music/elec_guitar.wav');
+
+  const Board = document.getElementById('board-game');
+  const boardAudio = new Audio('./public/music/bass.wav');
+
+  const Lamp = document.getElementById('lamp');
+  const lampAudio = new Audio('./public/music/flutev2.wav');
+
+  const stopPlaying = (audio) => {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  const playAudios = () => {
+    for (let i = 0; i < audios.length; i++) {
+      audios[i].play();
+
+      audios[i].addEventListener('ended', () => {
+        playAudios();
+      });
+    }
+  }
   
-  let counter = 0;
-  if (parseInt(localStorage.getItem('isPlayingCount')) > 0) {
-    let timer = setInterval(function(){
-      localStorage.setItem('duration', counter);
-      console.log(counter)
-      counter += 1;
-        if (parseInt(localStorage.getItem('isPlayingCount')) === 0) {
-          return;
-        }
-        if (counter === 7) {
-          counter = 0;
-        }
-        return timer;
-      }, 1057.5);
-  } 
+  Clock.addEventListener('click', () => {
+    const index = audios.indexOf(clockAudio);
 
+    if (index > -1) {
+      audios.splice(index, 1);
+      stopPlaying(clockAudio);
+      return;
+    }
+
+    if (audios.length === 0) {
+      audios.push(clockAudio);
+      playAudios();
+    } else {
+      audios.push(clockAudio);
+    }
+
+  });
+
+  Flower.addEventListener('click', () => {
+    const index = audios.indexOf(flowerAudio);
+
+    if (index > -1) {
+      audios.splice(index, 1);
+      stopPlaying(flowerAudio)
+      return;
+    }
+
+    if (audios.length === 0) {
+      audios.push(flowerAudio);
+      playAudios();
+    } else {
+      audios.push(flowerAudio);
+    }
+
+  });
+  
+  Chair.addEventListener('click', () => {
+    const index = audios.indexOf(chairAudio);
+
+    if (index > -1) {
+      audios.splice(index, 1);
+      stopPlaying(chairAudio)
+      return;
+    }
+
+    if (audios.length === 0) {
+      audios.push(chairAudio);
+      playAudios();
+    } else {
+      audios.push(chairAudio);
+    }
+
+  });
+
+  Board.addEventListener('click', () => {
+    const index = audios.indexOf(boardAudio);
+
+    if (index > -1) {
+      audios.splice(index, 1);
+      stopPlaying(boardAudio)
+      return;
+    }
+
+    if (audios.length === 0) {
+      audios.push(boardAudio);
+      playAudios();
+    } else {
+      audios.push(boardAudio);
+    }
+
+  });
+
+  Lamp.addEventListener('click', () => {
+    const index = audios.indexOf(lampAudio);
+
+    if (index > -1) {
+      audios.splice(index, 1);
+      stopPlaying(lampAudio)
+      return;
+    }
+
+    if (audios.length === 0) {
+      audios.push(lampAudio);
+      playAudios();
+    } else {
+      audios.push(lampAudio);
+    }
+
+  });
 });
-
-/*
-  set local storage hash to a boolean of every audio to check if playing
-
-  loop through hash in index.js and check if any sound is playing => 
-  store that result in a local storage var
-  if sound 
-
-  in the file of the clicked on object check if the local storage var above is true => if so 
-*/
