@@ -143,6 +143,30 @@ body #room-cont #left-of-room::before {
   content: "";
   position: absolute;
 }
+body #room-cont #timer-bar-cont {
+  top: 36%;
+  left: 34%;
+  height: 5%;
+  width: 42%;
+  background-color: #ccc;
+  position: relative;
+}
+body #room-cont #timer-bar-cont #timer-bar {
+  position: absolute;
+  height: 100%;
+  background-color: #7eb448;
+}
+body #room-cont #timer-bar-cont .play-animation {
+  animation: timer-animation 6.9s infinite;
+}
+@keyframes timer-animation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
 body #room-cont #room {
   box-shadow: -5px 5px 11px 0px #00000094;
   background: url(/JavaScript-Project/public/images/beat_machine_rooms/Room1_blue_border_scheme.png) center center;

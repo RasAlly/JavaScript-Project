@@ -1,4 +1,10 @@
+
 document.addEventListener("DOMContentLoaded", () => {
+
+  //timer bar
+  // const timerBar = document.getElementById("timer-bar")
+
+
 
   //sliders
 
@@ -27,13 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
   lampVolume.innerHTML = lampRange.value;
 
    const createVolumeSlide = (audio, objVolume, range) => {
-    //  console.log(audio);
-    //  console.log(objVolume);
-    //  console.log(slider);
     let val = range.value;
     let color = 'linear-gradient(90deg, rgb(117, 252, 117)' + val + '%, rgb(214, 214, 214)' + val + '%)';
     range.style.background = color;
-    // console.log(objVolume.innerHTML)
     let newVol = objVolume.innerHTML / 100;
     audio.volume = newVol;
   }
@@ -42,26 +44,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const audios = [];
   
   const Clock = document.getElementById('clock');
-  const clockAudio = new Audio('./public/music/drumsv2.wav');
-  
+  const clockAudio = new Audio('./public/music/rock_room_beats/rock_hat2.wav');
+
   const Flower = document.getElementById('flower-pot');
-  const flowerAudio = new Audio('./public/music/piano7sec.wav');
-  
+  const flowerAudio = new Audio('./public/music/rock_room_beats/rock_kik.wav');
+
   const Chair = document.getElementById('chair');
-  const chairAudio = new Audio('./public/music/elec_guitar.wav');
+  const chairAudio = new Audio('./public/music/rock_room_beats/rock_pads.wav');
   
   const Board = document.getElementById('board-game');
-  const boardAudio = new Audio('./public/music/bass.wav');
-  
+  const boardAudio = new Audio('./public/music/rock_room_beats/rock_synth2.wav');
+
   const Lamp = document.getElementById('lamp');
-  const lampAudio = new Audio('./public/music/flutev2.wav');
+  const lampAudio = new Audio('./public/music/rock_room_beats/rock_snare.wav');
   
   const stopPlaying = (audio) => {
     audio.pause();
     audio.currentTime = 0;
   }
+
+  // const toggleProgressBar = () => {
+  //   if (audios.length > 0 && !timerBar.classList.contains('play-animation')) {
+  //     timerBar.classList.add('play-animation');
+  //     return;
+      
+  //   } else if (audios.length > 0 && timerBar.classList.contains('play-animation')) {
+  //     return;
+  //   } else if (audios.length === 0) {
+  //     timerBar.classList.remove('play-animation');
+  //     return;
+  //   }
+  // }
   
   const playAudios = () => {
+    // toggleProgressBar();
+
     for (let i = 0; i < audios.length; i++) {
       const ele = audios[i]; // {audio: flowerAudio, slider: flowerSlider}
       const audio = ele.audio;
@@ -89,6 +106,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     return false;
   }
+
+  // const isPlaying = () => {
+  //  if (audios.length === 0) {
+  //    if (timerBar.hasAttribute('play-animation')) {
+  //      timerBar.removeAttribute('play-animation');
+  //    }
+  //  } else {
+  //    animateBar();
+  //  }
+  // }
 
   ///////////
 
