@@ -1,123 +1,187 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const audios = [];
 
+  //sliders
+
+  const clockSlider = document.getElementById('clock-slider');
+  const flowerSlider = document.getElementById('flower-slider');
+  const chairSlider = document.getElementById('chair-slider');
+  const boardSlider = document.getElementById('board-slider');
+  const lampSlider = document.getElementById('lamp-slider');
+
+  let clockRange = document.getElementById('clock-range');
+  let flowerRange = document.getElementById('flower-range');
+  let chairRange = document.getElementById('chair-range');
+  let boardRange = document.getElementById('board-range');
+  let lampRange = document.getElementById('lamp-range');
+
+  let clockVolume = document.getElementById('clock-volume');
+  let flowerVolume = document.getElementById('flower-volume');
+  let chairVolume = document.getElementById('chair-volume');
+  let boardVolume = document.getElementById('board-volume');
+  let lampVolume = document.getElementById('lamp-volume');
+     
+  clockVolume.innerHTML = clockRange.value;
+  flowerVolume.innerHTML = flowerRange.value;
+  chairVolume.innerHTML = chairRange.value;
+  boardVolume.innerHTML = boardRange.value;
+  lampVolume.innerHTML = lampRange.value;
+
+   const createVolumeSlide = (audio, objVolume, range) => {
+    //  console.log(audio);
+    //  console.log(objVolume);
+    //  console.log(slider);
+    let val = range.value;
+    let color = 'linear-gradient(90deg, rgb(117, 252, 117)' + val + '%, rgb(214, 214, 214)' + val + '%)';
+    range.style.background = color;
+    // console.log(objVolume.innerHTML)
+    let newVol = objVolume.innerHTML / 100;
+    audio.volume = newVol;
+  }
+  
+  //audios
+  const audios = [];
+  
   const Clock = document.getElementById('clock');
   const clockAudio = new Audio('./public/music/drumsv2.wav');
-
+  
   const Flower = document.getElementById('flower-pot');
   const flowerAudio = new Audio('./public/music/piano7sec.wav');
-
+  
   const Chair = document.getElementById('chair');
   const chairAudio = new Audio('./public/music/elec_guitar.wav');
-
+  
   const Board = document.getElementById('board-game');
   const boardAudio = new Audio('./public/music/bass.wav');
-
+  
   const Lamp = document.getElementById('lamp');
   const lampAudio = new Audio('./public/music/flutev2.wav');
-
+  
   const stopPlaying = (audio) => {
     audio.pause();
     audio.currentTime = 0;
   }
-
+  
   const playAudios = () => {
     for (let i = 0; i < audios.length; i++) {
-      audios[i].play();
+      const ele = audios[i]; // {audio: flowerAudio, slider: flowerSlider}
+      const audio = ele.audio;
+      const slider = ele.slider;
+      const objVolume = ele.objVolume;
+      const range = ele.range;
+      audio.play();
 
-      audios[i].addEventListener('ended', () => {
+      range.oninput = function() {
+        // console.log(this);
+        objVolume.innerHTML = this.value;
+      }
+
+      slider.style.display = "block";
+      range.addEventListener("input", createVolumeSlide.bind(null, audio, objVolume, range));
+      audio.addEventListener('ended', () => {
         playAudios();
       });
     }
   }
+
+  const isInAudiosArr = (audio) => {
+    for (let i = 0; i < audios.length; i++) {
+      if (audios[i].audio === audio) return true;
+    }
+    return false;
+  }
+
+  ///////////
+
   
   Clock.addEventListener('click', () => {
-    const index = audios.indexOf(clockAudio);
+    const clockAudioObj = {audio: clockAudio, slider: clockSlider, objVolume: clockVolume, range: clockRange};
+    // const index = audios.indexOf(clockAudioObj);
 
-    if (index > -1) {
-      audios.splice(index, 1);
+    if (isInAudiosArr(clockAudioObj.audio)) {
+      audios.splice(clockAudioObj, 1);
       stopPlaying(clockAudio);
+      clockSlider.style.display = "none";
       return;
     }
 
     if (audios.length === 0) {
-      audios.push(clockAudio);
+      audios.push(clockAudioObj);
       playAudios();
     } else {
-      audios.push(clockAudio);
+      audios.push(clockAudioObj);
     }
-
   });
 
   Flower.addEventListener('click', () => {
-    const index = audios.indexOf(flowerAudio);
+    const flowerAudioObj = {audio: flowerAudio, slider: flowerSlider, objVolume: flowerVolume, range: flowerRange};
 
-    if (index > -1) {
-      audios.splice(index, 1);
-      stopPlaying(flowerAudio)
+    if (isInAudiosArr(flowerAudioObj.audio)) {
+      audios.splice(flowerAudioObj, 1);
+      stopPlaying(flowerAudioObj.audio)
+      flowerSlider.style.display = "none";
       return;
     }
 
     if (audios.length === 0) {
-      audios.push(flowerAudio);
+      audios.push(flowerAudioObj);
       playAudios();
     } else {
-      audios.push(flowerAudio);
+      audios.push(flowerAudioObj);
     }
-
   });
   
   Chair.addEventListener('click', () => {
-    const index = audios.indexOf(chairAudio);
+    const chairAudioObj = {audio: chairAudio, slider: chairSlider, objVolume: chairVolume, range: chairRange};
+    // const index = audios.indexOf(chairAudioObj);
 
-    if (index > -1) {
-      audios.splice(index, 1);
-      stopPlaying(chairAudio)
+    if (isInAudiosArr(chairAudioObj.audio)) {
+      audios.splice(chairAudioObj, 1);
+      stopPlaying(chairAudio);
+      chairSlider.style.display = "none";
       return;
     }
 
     if (audios.length === 0) {
-      audios.push(chairAudio);
+      audios.push(chairAudioObj);
       playAudios();
     } else {
-      audios.push(chairAudio);
+      audios.push(chairAudioObj);
     }
-
   });
 
   Board.addEventListener('click', () => {
-    const index = audios.indexOf(boardAudio);
+    const boardAudioObj = {audio: boardAudio, slider: boardSlider, objVolume: boardVolume, range: boardRange};
 
-    if (index > -1) {
-      audios.splice(index, 1);
-      stopPlaying(boardAudio)
+    if (isInAudiosArr(boardAudioObj.audio)) {
+      audios.splice(boardAudioObj, 1);
+      stopPlaying(boardAudioObj.audio)
+      boardSlider.style.display = "none";
       return;
     }
 
     if (audios.length === 0) {
-      audios.push(boardAudio);
+      audios.push(boardAudioObj);
       playAudios();
     } else {
-      audios.push(boardAudio);
+      audios.push(boardAudioObj);
     }
-
   });
 
   Lamp.addEventListener('click', () => {
-    const index = audios.indexOf(lampAudio);
+    const lampAudioObj = {audio: lampAudio, slider: lampSlider, objVolume: lampVolume, range: lampRange};
 
-    if (index > -1) {
-      audios.splice(index, 1);
-      stopPlaying(lampAudio)
+    if (isInAudiosArr(lampAudioObj.audio)) {
+      audios.splice(lampAudioObj, 1);
+      stopPlaying(lampAudioObj.audio)
+      lampSlider.style.display = "none";
       return;
     }
 
     if (audios.length === 0) {
-      audios.push(lampAudio);
+      audios.push(lampAudioObj);
       playAudios();
     } else {
-      audios.push(lampAudio);
+      audios.push(lampAudioObj);
     }
-
   });
 });

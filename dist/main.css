@@ -11,7 +11,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-end;
-  background-color: #1d4871;
+  background: linear-gradient(50deg, #1a2a6c, #b21f1f, #fdbb2d);
   opacity: 0.9;
 }
 body h2 {
@@ -60,7 +60,7 @@ body #blue #title-background {
   height: 20%;
 }
 body #room-cont {
-  display: flex;
+  display: block;
   height: 100%;
   width: 100%;
   align-items: center;
@@ -70,9 +70,12 @@ body #room-cont {
   justify-content: space-evenly;
 }
 body #room-cont #left-of-room {
+  display: relative;
   box-shadow: -5px 5px 11px 0px #00000094;
   height: 55%;
-  position: absolute;
+  position: relative;
+  border-radius: 1em;
+  overflow: hidden;
   top: 25%;
   left: 2%;
   width: 17%;
@@ -135,6 +138,10 @@ body #room-cont #left-of-room .rooms {
 body #room-cont #left-of-room .rooms:hover {
   background-color: whitesmoke;
   color: #120101d9;
+}
+body #room-cont #left-of-room::before {
+  content: "";
+  position: absolute;
 }
 body #room-cont #room {
   box-shadow: -5px 5px 11px 0px #00000094;
@@ -221,6 +228,53 @@ body #room-cont #room #desk {
 }
 body #room-cont #room:hover {
   box-shadow: 13px 27px 75px 18px #00000094;
+}
+body #room-cont .slider-list-cont {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  flex-direction: column;
+  margin-top: -22%;
+  margin-left: 89%;
+}
+body #room-cont .slider-cont {
+  display: none;
+}
+body #room-cont .slider-cont .slider {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 20px;
+  background: linear-gradient(90deg, #75fc75 60%, #d6d6d6 60%);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 12px;
+  box-shadow: 0px 1px 10px 1px black;
+  cursor: pointer;
+}
+body #room-cont .slider-cont .slider .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 40px;
+  height: 40px;
+  appearance: none;
+  border-radius: 10%;
+}
+body #room-cont .slider-cont .slider:hover {
+  opacity: 1;
+  width: 90%;
+  height: 18px;
+}
+body #room-cont .slider-cont p {
+  margin-top: 5%;
+  opacity: 0.7;
+  font-size: 14px;
+  font-weight: 900;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+body #room-cont .slider-cont p .volume {
+  font-weight: 800;
+  font-size: 12px;
 }
 
 /* .img1 {

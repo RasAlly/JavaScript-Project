@@ -9,7 +9,8 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-end;
-  background-color: #1d4871;
+  // background-color: #1d4871;
+  background: linear-gradient(50deg, #1a2a6c, #b21f1f, #fdbb2d);
   opacity: .9;
   
   h2 {
@@ -68,7 +69,7 @@ body {
   }
 
   #room-cont {
-    display: flex;
+    display: block;
     height: 100%;
     width: 100%;
     align-items: center;
@@ -78,77 +79,87 @@ body {
     justify-content: space-evenly;
 
     #left-of-room {
+      display: relative;
       box-shadow: -5px 5px 11px 0px #00000094;
       height: 55%;
-      position: absolute;
+      position: relative;
+      border-radius: 1em;
+      overflow: hidden;
+
       top: 25%;
       left: 2%;
       width: 17%;
       background-color: #120101d9;
       border-radius: 10px;
-
-      #rooms-heading-select {
-        position: absolute;
-        top: 2%;
-        left: 12%;
-        width: 54%;
-        height: fit-content;
-        font-family: "Space Mono", monospace;
-        font-size: 31px;
-        color: #7ca4c7;
-      }
-      #rooms-heading-a {
-        position: absolute;
-        top: 2%;
-        left: 69%;
-        width: 57%;
-        height: fit-content;
-        font-family: "Space Mono", monospace;
-        font-size: 31px;
-        color: #7ca4c7;
-      }
-      #rooms-heading-room {
-        position: absolute;
-        top: 11%;
-        left: 31%;
-        width: 54%;
-        height: fit-content;
-        font-family: "Space Mono", monospace;
-        font-size: 32px;
-        color: #7ca4c7;
-      }
       
-      #line-divider {
-        position: absolute;
-      }
+        #rooms-heading-select {
+          position: absolute;
+          top: 2%;
+          left: 12%;
+          width: 54%;
+          height: fit-content;
+          font-family: "Space Mono", monospace;
+          font-size: 31px;
+          color: #7ca4c7;
+        }
+        #rooms-heading-a {
+          position: absolute;
+          top: 2%;
+          left: 69%;
+          width: 57%;
+          height: fit-content;
+          font-family: "Space Mono", monospace;
+          font-size: 31px;
+          color: #7ca4c7;
+        }
+
+        #rooms-heading-room {
+          position: absolute;
+          top: 11%;
+          left: 31%;
+          width: 54%;
+          height: fit-content;
+          font-family: "Space Mono", monospace;
+          font-size: 32px;
+          color: #7ca4c7;
+        }
+        
+        #line-divider {
+          position: absolute;
+        }
 
 
-      #room-list {
-        height: fit-content;
-        width: 70%;
-        position: absolute;
-        top: 26%;
-        left: 0;
-        font-family: "Space Mono", monospace;
-        color: whitesmoke;
+        #room-list {
+          height: fit-content;
+          width: 70%;
+          position: absolute;
+          top: 26%;
+          left: 0;
+          font-family: "Space Mono", monospace;
+          color: whitesmoke;
+        }
+
+        .rooms {
+          display: flex;
+          align-items: center;
+          height: 3em;
+          width: 100%;
+          cursor: pointer;
+          transition: 0.3s;
+          border-radius: 10px;
+          margin-left: 10px;
+          padding-left: 20px;
+        }
+
+        .rooms:hover {
+          background-color: whitesmoke;
+          color: #120101d9;
+        }
       }
 
-      .rooms {
-        display: flex;
-        align-items: center;
-        height: 3em;
-        width: 100%;
-        cursor: pointer;
-        transition: 0.3s;
-        border-radius: 10px;
-        margin-left: 10px;
-        padding-left: 20px;
-      }
-
-      .rooms:hover {
-        background-color: whitesmoke;
-        color: #120101d9;
-      }
+    #left-of-room::before {
+      content: "";
+      position: absolute;
     }
     
     #room {
@@ -157,7 +168,6 @@ body {
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
-      
       background-size: cover;
       position: absolute;
       height: 75%;
@@ -248,6 +258,62 @@ body {
     #room:hover {
       box-shadow: 13px 27px 75px 18px #00000094;
     }
+
+    .slider-list-cont {
+      display: flex;
+      height: fit-content;
+      width: fit-content;
+      flex-direction: column;
+      margin-top: -22%;
+      margin-left: 89%;
+    }
+    
+    .slider-cont {
+      display: none;
+
+      .slider {
+        -webkit-appearance: none;
+        width: 70%;
+        height: 20px;
+        background: linear-gradient(90deg, rgb(117, 252, 117) 60%, rgb(214, 214, 214) 60%);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+        border-radius: 12px;
+        box-shadow: 0px 1px 10px 1px black;
+
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 40px;
+          height: 40px;
+          appearance: none;
+          border-radius: 10%;
+        }
+        cursor: pointer;
+      }
+  
+      .slider:hover {
+        opacity: 1;
+        width: 90%;
+        height: 18px;
+      }
+
+      p {
+        margin-top: 5%;
+        opacity: 0.7;
+        font-size: 14px;
+        font-weight: 900;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        .volume {
+          font-weight: 800;
+          font-size: 12px;
+        }
+      }
+  
+    }
+
   }
 }
 

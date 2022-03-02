@@ -12,21 +12,22 @@
 
 <body>
   <h2 data-text="Beat Machine">Beat Machine</h2>
+
     <div id="blue">
       <div id="title-background"></div>
 
     </div>
     <div id="room-cont">
       <div id='left-of-room'>
-        <section id="rooms-heading-select">SELECT</section>
-        <section id="rooms-heading-a">A</section>
-        <section id="rooms-heading-room">ROOM</section>
-        <div id="room-list">
-          <div class="rooms">Hip-HOP</div>
-          <div class="rooms">Lo-Fi</div>
-          <div class="rooms">Calm</div>
-          <div class="rooms">Rock</div>
-        </div>
+          <section id="rooms-heading-select">SELECT</section>
+          <section id="rooms-heading-a">A</section>
+          <section id="rooms-heading-room">ROOM</section>
+          <div id="room-list">
+            <div class="rooms">Hip-HOP</div>
+            <div class="rooms">Lo-Fi</div>
+            <div class="rooms">Calm</div>
+            <div class="rooms">Rock</div>
+          </div>
       </div>
       <div id="room">
         <img id="clock" src="./public/images/instruments/clock.png">
@@ -38,6 +39,29 @@
         <img id="chair" src="./public/images/instruments/chair.png">
         <img id="board-game" src="./public/images/instruments/board_game.png">
         <img id="fan" src="./public/images/nonclick_items/fan.png">
+      </div>
+
+      <div class="slider-list-cont">
+        <div class="slider-cont" id="clock-slider">
+          <input type="range" min="0" max="100" value="50" id="clock-range" class="slider"/>
+          <p>clock volume: <span class="volume" id="clock-volume"></span></p>
+        </div>
+        <div class="slider-cont" id="flower-slider">
+          <input type="range" min="0" max="100" value="50" id="flower-range" class="slider"/>
+          <p>flower volume: <span class="volume" id="flower-volume"></span></p>
+        </div>
+        <div class="slider-cont" id="chair-slider">
+          <input type="range" min="0" max="100" value="50" id="chair-range" class="slider"/>
+          <p>chair volume: <span class="volume" id="chair-volume"></span></p>
+        </div>
+        <div class="slider-cont" id="board-slider">
+          <input type="range" min="0" max="100" value="50" id="board-range" class="slider"/>
+          <p>board volume: <span class="volume" id="board-volume"></span></p>
+        </div>
+        <div class="slider-cont" id="lamp-slider">
+          <input type="range" min="0" max="100" value="50" id="lamp-range" class="slider"/>
+          <p>lamp volume: <span class="volume" id="lamp-volume"></span></p>
+        </div>
       </div>
     </div>
     
