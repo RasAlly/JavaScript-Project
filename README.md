@@ -1,4 +1,7 @@
-<h1>Beat Maker Overview</h1>
+<h1>Beat Maker Overview
+<br>
+  <a href="https://rasally.github.io/JavaScript-Project/">Live Site</a>
+</h1>
  <p>Choose a room to build a beat. Rooms are based on music genres, so each room will have different instruments and tempos to set the tone respectively. To hear a loop of an instrument, click around the room on different objects, which may or may not be the actual representation of the sound(e.g. A chair when clicked plays a loop an electrical piano). No need to wait for the next bar to add another loop, just click it whenever and the beat maker will synchronize it to the loops that are currently playing.</p> 
  After you familiarize yourself with the sounds go ahead and record your beat by pressing the record button. Note recordings will terminate after 4 minutes if you don't stop it. Once recording is finished, an mp3 of your beat will be available for download. !!!Enjoy:):)
  <br>

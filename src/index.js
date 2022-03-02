@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   //timer bar
-  // const timerBar = document.getElementById("timer-bar")
+  const timerBar = document.getElementById("timer-bar")
 
 
 
@@ -63,21 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.currentTime = 0;
   }
 
-  // const toggleProgressBar = () => {
-  //   if (audios.length > 0 && !timerBar.classList.contains('play-animation')) {
-  //     timerBar.classList.add('play-animation');
-  //     return;
+  const toggleProgressBar = () => {
+    if (audios.length > 0 && !timerBar.classList.contains('play-animation')) {
+      timerBar.classList.add('play-animation');
+      return;
       
-  //   } else if (audios.length > 0 && timerBar.classList.contains('play-animation')) {
-  //     return;
-  //   } else if (audios.length === 0) {
-  //     timerBar.classList.remove('play-animation');
-  //     return;
-  //   }
-  // }
+    } else if (audios.length > 0 && timerBar.classList.contains('play-animation')) {
+      return;
+    } else if (audios.length === 0) {
+      timerBar.classList.remove('play-animation');
+      return;
+    }
+  }
   
   const playAudios = () => {
-    // toggleProgressBar();
+    toggleProgressBar();
 
     for (let i = 0; i < audios.length; i++) {
       const ele = audios[i]; // {audio: flowerAudio, slider: flowerSlider}
