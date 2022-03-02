@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const chairAudio = new Audio('./public/music/rock_room_beats/rock_pads.wav');
   
   const Board = document.getElementById('board-game');
-  const boardAudio = new Audio('./public/music/rock_room_beats/rock_synth2.wav');
+  const boardAudio = new Audio('./public/music/rock_room_beats/rock_hat2.wav');
 
   const Lamp = document.getElementById('lamp');
-  const lampAudio = new Audio('./public/music/rock_room_beats/rock_snare.wav');
+  const lampAudio = new Audio('./public/music/rock_room_beats/rock_synth1.wav');
   
   const stopPlaying = (audio) => {
     audio.pause();
@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const objVolume = ele.objVolume;
       const range = ele.range;
       audio.play();
+      console.log(audios.length);
 
       range.oninput = function() {
         // console.log(this);
@@ -142,12 +143,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const removeFromArray = (obj) => {
+    audios.splice(audios.findIndex(a => a.audio === obj.audio) , 1);
+  }
+
   Clock.addEventListener('click', () => {
     const clockAudioObj = {audio: clockAudio, slider: clockSlider, objVolume: clockVolume, range: clockRange};
     // const index = audios.indexOf(clockAudioObj);
 
     if (isInAudiosArr(clockAudioObj.audio)) {
-      audios.splice(clockAudioObj, 1);
+      removeFromArray(clockAudioObj);
       stopPlaying(clockAudio);
       clockSlider.style.display = "none";
       removeAnimation();
@@ -166,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const flowerAudioObj = {audio: flowerAudio, slider: flowerSlider, objVolume: flowerVolume, range: flowerRange};
 
     if (isInAudiosArr(flowerAudioObj.audio)) {
-      audios.splice(flowerAudioObj, 1);
+      removeFromArray(flowerAudioObj);
       stopPlaying(flowerAudioObj.audio)
       flowerSlider.style.display = "none";
       removeAnimation();
@@ -186,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // const index = audios.indexOf(chairAudioObj);
 
     if (isInAudiosArr(chairAudioObj.audio)) {
-      audios.splice(chairAudioObj, 1);
+      removeFromArray(chairAudioObj);
       stopPlaying(chairAudio);
       chairSlider.style.display = "none";
       removeAnimation();
@@ -205,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const boardAudioObj = {audio: boardAudio, slider: boardSlider, objVolume: boardVolume, range: boardRange};
 
     if (isInAudiosArr(boardAudioObj.audio)) {
-      audios.splice(boardAudioObj, 1);
+      removeFromArray(boardAudioObj);
       stopPlaying(boardAudioObj.audio)
       boardSlider.style.display = "none";
       removeAnimation();
@@ -224,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const lampAudioObj = {audio: lampAudio, slider: lampSlider, objVolume: lampVolume, range: lampRange};
 
     if (isInAudiosArr(lampAudioObj.audio)) {
-      audios.splice(lampAudioObj, 1);
+      removeFromArray(lampAudioObj);
       stopPlaying(lampAudioObj.audio)
       lampSlider.style.display = "none";
       removeAnimation();
