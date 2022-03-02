@@ -63,6 +63,19 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.currentTime = 0;
   }
 
+  // const toggleProgressBar = timerBar.addEventListener("animationiteration", () => {
+  //   if (audios.length > 0 && !timerBar.classList.contains('play-animation')) {
+  //     timerBar.classList.add('play-animation');
+  //     return;
+      
+  //   } else if (audios.length > 0 && timerBar.classList.contains('play-animation')) {
+  //     return;
+  //   } else if (audios.length === 0) {
+  //     timerBar.classList.remove('play-animation');
+  //     return;
+  //   }
+  // })
+
   const toggleProgressBar = () => {
     if (audios.length > 0 && !timerBar.classList.contains('play-animation')) {
       timerBar.classList.add('play-animation');
@@ -75,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
   }
-  
+  // let count = 0;
   const playAudios = () => {
     toggleProgressBar();
 
@@ -120,6 +133,15 @@ document.addEventListener("DOMContentLoaded", () => {
   ///////////
 
   
+  const removeAnimation = () => {
+    if (audios.length === 0) {
+      timerBar.addEventListener("animationiteration", () => { 
+        timerBar.classList.remove('play-animation');
+        return;
+      })
+    }
+  }
+
   Clock.addEventListener('click', () => {
     const clockAudioObj = {audio: clockAudio, slider: clockSlider, objVolume: clockVolume, range: clockRange};
     // const index = audios.indexOf(clockAudioObj);
@@ -128,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       audios.splice(clockAudioObj, 1);
       stopPlaying(clockAudio);
       clockSlider.style.display = "none";
+      removeAnimation();
       return;
     }
 
@@ -146,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
       audios.splice(flowerAudioObj, 1);
       stopPlaying(flowerAudioObj.audio)
       flowerSlider.style.display = "none";
+      removeAnimation();
       return;
     }
 
@@ -165,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
       audios.splice(chairAudioObj, 1);
       stopPlaying(chairAudio);
       chairSlider.style.display = "none";
+      removeAnimation();
       return;
     }
 
@@ -183,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
       audios.splice(boardAudioObj, 1);
       stopPlaying(boardAudioObj.audio)
       boardSlider.style.display = "none";
+      removeAnimation();
       return;
     }
 
@@ -201,6 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
       audios.splice(lampAudioObj, 1);
       stopPlaying(lampAudioObj.audio)
       lampSlider.style.display = "none";
+      removeAnimation();
       return;
     }
 
