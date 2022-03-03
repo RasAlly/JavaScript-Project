@@ -155,9 +155,13 @@ body #room-cont #timer-bar-cont #timer-bar {
   position: absolute;
   height: 100%;
   background-color: #7eb448;
+  width: 0;
 }
 body #room-cont #timer-bar-cont .play-animation {
   animation: timer-animation 6.9s infinite;
+}
+body #room-cont #timer-bar-cont .no-width {
+  background-color: #b46a48;
 }
 @keyframes timer-animation {
   0% {
@@ -167,13 +171,8 @@ body #room-cont #timer-bar-cont .play-animation {
     width: 100%;
   }
 }
-body #room-cont #room {
+body #room-cont .room {
   box-shadow: -5px 5px 11px 0px #00000094;
-  background: url(/JavaScript-Project/public/images/beat_machine_rooms/Room1_blue_border_scheme.png) center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   position: absolute;
   height: 75%;
   width: 68%;
@@ -181,7 +180,10 @@ body #room-cont #room {
   left: 21%;
   border-radius: 10px;
 }
-body #room-cont #room #clock {
+body #room-cont .room .lofi_items {
+  display: none;
+}
+body #room-cont .room #clock {
   position: absolute;
   height: 11.5%;
   width: 4%;
@@ -189,14 +191,14 @@ body #room-cont #room #clock {
   left: 3%;
   cursor: pointer;
 }
-body #room-cont #room #lamp_desk {
+body #room-cont .room #lamp_desk {
   height: 40%;
   width: 31%;
   position: absolute;
   top: 71%;
   left: 5%;
 }
-body #room-cont #room #lamp {
+body #room-cont .room #lamp {
   height: 10%;
   width: 5%;
   position: absolute;
@@ -204,7 +206,7 @@ body #room-cont #room #lamp {
   left: 7%;
   cursor: pointer;
 }
-body #room-cont #room #flower-pot {
+body #room-cont .room #flower-pot {
   height: 20%;
   width: 9%;
   position: absolute;
@@ -212,7 +214,7 @@ body #room-cont #room #flower-pot {
   left: 43%;
   cursor: pointer;
 }
-body #room-cont #room #board-game {
+body #room-cont .room #board-game {
   height: 6%;
   width: 11%;
   position: absolute;
@@ -220,7 +222,7 @@ body #room-cont #room #board-game {
   left: 15%;
   cursor: pointer;
 }
-body #room-cont #room #chair {
+body #room-cont .room #chair {
   height: 29%;
   width: 13%;
   position: absolute;
@@ -228,21 +230,21 @@ body #room-cont #room #chair {
   left: 70%;
   cursor: pointer;
 }
-body #room-cont #room #window {
+body #room-cont .room #window {
   height: 35%;
   width: 16%;
   position: absolute;
   top: 27%;
   left: 47%;
 }
-body #room-cont #room #fan {
+body #room-cont .room #fan {
   height: 20%;
   width: 17%;
   position: absolute;
   top: 1%;
   left: 23%;
 }
-body #room-cont #room #desk {
+body #room-cont .room #desk {
   height: 28%;
   width: 23%;
   position: absolute;
@@ -250,7 +252,79 @@ body #room-cont #room #desk {
   left: 77%;
   transform: rotate(1deg);
 }
-body #room-cont #room:hover {
+body #room-cont .room .calm_items {
+  display: block;
+}
+body #room-cont .room #floor-lamp {
+  position: absolute;
+  height: 32%;
+  width: 11%;
+  top: 49%;
+  left: 80%;
+}
+body #room-cont .room #hanging-lamp {
+  position: absolute;
+  top: 0%;
+  height: 27%;
+  left: 51%;
+}
+body #room-cont .room #couch {
+  position: absolute;
+  top: 63%;
+  left: 33%;
+}
+body #room-cont .room #cat {
+  position: absolute;
+  width: 8%;
+  height: 14%;
+  top: 58%;
+  left: 76%;
+}
+body #room-cont .room #bowl {
+  position: absolute;
+  top: 72%;
+  height: 12%;
+  left: 63%;
+}
+body #room-cont .room #painting {
+  position: absolute;
+  height: 48.7%;
+  width: 14%;
+  top: 51%;
+  left: 10%;
+}
+body #room-cont .room #sleeping-cat {
+  position: absolute;
+  top: 64%;
+  height: 17%;
+  left: 54%;
+}
+body #room-cont .room #sand-timer {
+  position: absolute;
+  top: 74%;
+  height: 8%;
+  left: 75%;
+}
+body #room-cont .room #table {
+  position: absolute;
+  top: 76%;
+  left: 50%;
+}
+body #room-cont #lofi-room {
+  background: url(/JavaScript-Project/public/images/beat_machine_rooms/Room1_blue_border_scheme.png) center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body #room-cont #calm-room {
+  background: url(/JavaScript-Project/public/images/calm_room/Room2_background_edit.png) center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body #room-cont .room:hover {
   box-shadow: 13px 27px 75px 18px #00000094;
 }
 body #room-cont .slider-list-cont {

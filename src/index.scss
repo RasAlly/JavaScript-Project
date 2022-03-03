@@ -174,10 +174,15 @@ body {
         position: absolute;
         height: 100%;
         background-color: rgb(126, 180, 72);
+        width: 0;
       }
 
       .play-animation {
         animation: timer-animation 6.9s infinite;
+      }
+
+      .no-width {
+        background-color: rgb(180, 106, 72); 
       }
     }
 
@@ -186,13 +191,8 @@ body {
       100% { width: 100%; }
     }
     
-    #room {
+    .room {
       box-shadow: -5px 5px 11px 0px #00000094;
-      background: url(/JavaScript-Project/public/images/beat_machine_rooms/Room1_blue_border_scheme.png) center center; 
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
       position: absolute;
       height: 75%;
       width: 68%;
@@ -200,6 +200,10 @@ body {
       left: 21%;
       border-radius: 10px;
 
+        .lofi_items {
+          display: none;
+        }
+        
         #clock {
           position: absolute;
           height: 11.5%;
@@ -277,9 +281,93 @@ body {
           left: 77%;
           transform: rotate(1deg);
         }
+
+        .calm_items {
+          display: block;
+        }
+
+        #floor-lamp {
+          position: absolute;
+          height: 32%;
+          width: 11%;
+          top: 49%;
+          left: 80%;
+        }
+
+        #hanging-lamp {
+          position: absolute;
+          top: 0%;
+          height: 27%;
+          left: 51%;
+        }
+
+        #couch {
+          position: absolute;
+          top: 63%;
+          left: 33%;       
+        }
+
+        #cat {
+          position: absolute;
+          width: 8%;
+          height: 14%;
+          top: 58%;
+          left: 76%
+        }
+
+        #bowl {
+          position: absolute;
+          top: 72%;
+          height: 12%;
+          left: 63%;
+        }
+
+        #painting {
+          position: absolute;
+          height: 48.7%;
+          width: 14%;
+          top: 51%;
+          left: 10%;
+        }
+
+        #sleeping-cat {
+          position: absolute;
+          top: 64%;
+          height: 17%;
+          left: 54%;
+        }
+
+        #sand-timer {
+          position: absolute;
+          top: 74%;
+          height: 8%;
+          left: 75%;
+        }
+
+        #table {
+          position: absolute;
+          top: 76%;
+          left: 50%;
+        }
     }
-  
-    #room:hover {
+
+    #lofi-room {
+      background: url(/JavaScript-Project/public/images/beat_machine_rooms/Room1_blue_border_scheme.png) center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    #calm-room {
+      background: url(/JavaScript-Project/public/images/calm_room/Room2_background_edit.png) center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    
+    .room:hover {
       box-shadow: 13px 27px 75px 18px #00000094;
     }
 
