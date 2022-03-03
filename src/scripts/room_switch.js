@@ -1,4 +1,4 @@
-import {stopAll} from './room';
+import {stopAll} from './chill_room';
 
 document.addEventListener("DOMContentLoaded", () => {
 

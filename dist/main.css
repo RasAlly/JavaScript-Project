@@ -306,11 +306,13 @@ body #room-cont .room #hanging-lamp {
   top: 0%;
   height: 27%;
   left: 51%;
+  cursor: pointer;
 }
 body #room-cont .room #couch {
   position: absolute;
   top: 63%;
   left: 33%;
+  cursor: pointer;
 }
 body #room-cont .room #cat {
   position: absolute;
@@ -318,12 +320,14 @@ body #room-cont .room #cat {
   height: 14%;
   top: 58%;
   left: 76%;
+  cursor: pointer;
 }
 body #room-cont .room #bowl {
   position: absolute;
   top: 72%;
   height: 12%;
   left: 63%;
+  cursor: pointer;
 }
 body #room-cont .room #painting {
   position: absolute;
@@ -331,6 +335,7 @@ body #room-cont .room #painting {
   width: 14%;
   top: 51%;
   left: 10%;
+  cursor: pointer;
 }
 body #room-cont .room #sleeping-cat {
   position: absolute;

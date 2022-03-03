@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
   lampVolume.innerHTML = lampRange.value;
 
    const createVolumeSlide = (audio, objVolume, range) => {
-    let val = range.value;
-    let color = 'linear-gradient(90deg, rgb(117, 252, 117)' + val + '%, rgb(214, 214, 214)' + val + '%)';
-    range.style.background = color;
-    let newVol = objVolume.innerHTML / 100;
-    audio.volume = newVol;
+    let val = range.value; //sets current value 
+    let color = 'linear-gradient(90deg, rgb(117, 252, 117)' + val + '%, rgb(214, 214, 214)' + val + '%)'; //changes amount of green when slider is dragged
+    range.style.background = color; //sets background of slider to the color above
+    let newVol = objVolume.innerHTML / 100; //sets new volume based on slider value
+    audio.volume = newVol; //sets audio to the new volume
   }
   
   //audios
@@ -78,26 +78,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const playAudios = () => {
     toggleProgressBar();
 
-    for (let i = 0; i < audios.length; i++) {
-      const ele = audios[i]; // {audio: flowerAudio, slider: flowerSlider}
-      const audio = ele.audio;
-      const slider = ele.slider;
-      const objVolume = ele.objVolume;
-      const range = ele.range;
-      audio.play();
-      console.log(audio.duration);
+    if (audios.length > 0) { // checks if any audios are clicked on
+      for (let i = 0; i < audios.length; i++) {
+        const ele = audios[i]; // {audio: flowerAudio, slider: flowerSlider}
+        const audio = ele.audio;
+        const slider = ele.slider;
+        const objVolume = ele.objVolume;
+        const range = ele.range;
+        audio.play();
 
-      range.oninput = function() {
-        // console.log(this);
-        objVolume.innerHTML = this.value;
+        range.oninput = function() { //changing slider volume value on input(drag)
+          objVolume.innerHTML = this.value;
+        }
+
+        slider.style.display = "block"; // unhides slider 
+        range.addEventListener("input", createVolumeSlide.bind(null, audio, objVolume, range)); //when input changes => executes method
+        audio.addEventListener('ended', () => {
+          playAudios(); //calls function again
+        });
       }
-
-      slider.style.display = "block";
-      range.addEventListener("input", createVolumeSlide.bind(null, audio, objVolume, range));
-      audio.addEventListener('ended', () => {
-        playAudios();
-      });
     }
+    return;
   }
 
   const isInAudiosArr = (audio) => {
@@ -153,11 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isInAudiosArr(clockAudioObj.audio)) {
       removeFromArray(clockAudioObj);
-      stopPlaying(clockAudio);
+      stopPlaying(clockAudioObj.audio);
       clockSlider.style.display = "none";
       removeAnimation();
       return;
     }
+    console.log(audios.length)
 
     if (audios.length === 0) {
       audios.push(clockAudioObj);
@@ -197,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
       removeAnimation();
       return;
     }
-
+    console.log(audios.length)
     if (audios.length === 0) {
       audios.push(chairAudioObj);
       playAudios();

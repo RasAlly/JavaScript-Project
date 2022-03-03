@@ -342,12 +342,14 @@ body {
           top: 0%;
           height: 27%;
           left: 51%;
+          cursor: pointer;
         }
 
         #couch {
           position: absolute;
           top: 63%;
-          left: 33%;       
+          left: 33%; 
+          cursor: pointer;      
         }
 
         #cat {
@@ -355,7 +357,8 @@ body {
           width: 8%;
           height: 14%;
           top: 58%;
-          left: 76%
+          left: 76%;
+          cursor: pointer;
         }
 
         #bowl {
@@ -363,6 +366,7 @@ body {
           top: 72%;
           height: 12%;
           left: 63%;
+          cursor: pointer;
         }
 
         #painting {
@@ -371,6 +375,7 @@ body {
           width: 14%;
           top: 51%;
           left: 10%;
+          cursor: pointer;
         }
 
         #sleeping-cat {
