@@ -137,10 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   const removeAnimation = () => {
     if (audios.length === 0) {
-      timerBar.addEventListener("animationiteration", () => { 
-        timerBar.classList.remove('play-animation');
-        return;
-      })
+      timerBar.classList.remove('play-animation');
     }
   }
 
@@ -155,7 +152,14 @@ document.addEventListener("DOMContentLoaded", () => {
   stopAll = () => {
     audios.forEach(obj => {
       stopPlaying(obj.audio);
+      timerBar.classList.remove('play-animation');
     })
+    let sliders = document.getElementsByClassName('slider-cont');
+
+      for (let i = 0; i < sliders.length; i++) {
+        const slider = sliders[i];
+        slider.style.display = 'none';
+      }
   }
 
   Clock.addEventListener('click', () => {
