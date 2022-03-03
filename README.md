@@ -1,59 +1,75 @@
 <h1>Beat Maker Overview</h1>
- <p>Choose a room to build a beat. Rooms are based on music genres, so each room will have different instruments and tempos to set the tone respectively. To hear a loop of an instrument, click around the room on different objects, which may or may not be the actual representation of the sound(e.g. A chair when clicked plays a loop an electrical piano). No need to wait for the next bar to add another loop, just click it whenever and the beat maker will synchronize it to the loops that are currently playing.</p> 
- After you familiarize yourself with the sounds go ahead and record your beat by pressing the record button. Note recordings will terminate after 4 minutes if you don't stop it. Once recording is finished, an mp3 of your beat will be available for download. !!!Enjoy:):)
+ <p>This visualization is a place where I can display my music and the user controls the beat's arrangment.  <br>
+ Choose a room to build a beat. Rooms are based on music genres, so each room will have different instruments and tempos to set the tone respectively. To hear a loop of an instrument, click around the room on different objects, which may not be the actual representation of the sound(e.g. A chair when clicked plays a loop an electrical piano). No need to wait for the next bar to add another loop, just click it whenever and the beat maker will synchronize it to the loops that are currently playing.</p> 
+Control the gain of each loop to your desire!!!Enjoy:):)
   <br>
  <br>
     <a href="https://rasally.github.io/JavaScript-Project/">Live Site</a>
  <br>
  <br>
-<h1>Functionality & MVPs</h1>
-
-In this Beat Maker, users will be able to: 
-- Choose from a selection of rooms 
-- Click on objects to turn the loop on/off
-- Record their beat and turn on and off loops in the process 
-- Download an mp3 of their beat
-
-In addition, this project will include:
- - An About modal describing the background and rules of the game
- - A production README
-
+<h1>Technologies Used</h1>
+ I used pure vanilla dom, with a little help from Javascript's built in Web Audio Api
+ 
 <br>
 
-<h1>Wireframes</h1>
+<h1>Challenges Faced and Solutions</h1>
 
-<!-- <img src="./Screen Shot 2022-02-24 at 7.51.47 PM.png" alt="WireFrame" width="1000" height="800"> -->
-<img src="./Screen Shot 2022-02-24 at 11.09.03 PM.png" alt="WireFrame" style="left:right;width:700px;height:500px;">
-<br>
-<br>
-<h3>- Nav Links contain the links to my Github and LinkedIn</h3>
-<h3>- Mp3 Download shows the user a download option if the beat has been recorded</h3>
-<h3>- The Room is where the user clicks on objects to build a beat<h3>
-<h3>- Name of Room is the current room the user is in</h3>
-<h3>- List of Rooms will have a selection of rooms the user can choose from</h3>
-<br>
-<br>
-<h1>Implementation Timeline</h1>
+<h2>First Challenge</h2>
+ I had some issues getting the volume slider to change the percentage of green being displayed based on the sliders value.
+ At first I was using css animations but that wouldn't work since it's only supposed to change when the user drags the slider.
+ 
+<h3>Solution:</h3> On a input change I call a function that gets the current slider value and sets the sliders background color based on the new percentage of green to white rendered. 
 
-- Friday
-  - Build skeleton with all the needed files, classes, and technologies(e.g. webpack). 
-  - Get loops and sort them by genre.
-  - Get images to start working on the room layout
-- Weekend
-  - finish room layout. 
-  - Make objects in the room play a loop when clicked. 
-  - Synch up all the clicks so nothing plays off beat. 
-  - Get most of the page built with functional clickable objects.  
-- Monday
-  - Make a record button that allows users to record while turning on and off sounds. 
-  - Don't let the recording exceed 4 minutes. 
-  - Show the recording back to the user. 
-- Tuesday
-  - make an Mp3 of the beat available for download after the recording finishes. 
-  - Work on styling the page
-- Wednesday
-  - (bonus) Have the room start off with dull colors like black and white. 
-  - Every time an object that has a loop is clicked a section of the room will fill with color
-- Thursday
-  - Rewrite this readMe as a production readMe
-  - Deploy to Github page
+code snippet:
+```
+const playAudios = () => {
+       ...
+       
+        range.addEventListener("input", createVolumeSlide.bind(null, audio, objVolume, range)); //when input changes => executes method
+       
+       ...
+  }
+  
+const createVolumeSlide = (audio, objVolume, range) => {
+    //sets current value
+    let val = range.value;
+    
+    //changes amount of green when slider is dragged
+    let color = 'linear-gradient(90deg, rgb(117, 252, 117)' + val + '%, rgb(214, 214, 214)' + val + '%)';
+    
+    //sets background of slider to the color above
+    range.style.background = color; 
+    
+    //sets new volume based on slider value
+    let newVol = objVolume.innerHTML / 100; 
+    
+     //sets audio to the new volume
+    audio.volume = newVol; 
+  }
+```
+
+<h2>Second Challenge</h2>
+The audios wouldn't come in at the right time if there were other audios playing. I was using local storage to and a timer function to check if the timer when the timer reaches 0, then play all the audios in the local storage array. This didn't sync the audios correctly, eveything was off beat by a lot.
+ 
+<h3>Solution:</h3> I used the built in Web Audio Api to check if the when the audio ended and when that's true the function gets called again.
+
+code snippet:
+```
+  const playAudios = () => {
+   ...
+      
+    audio.addEventListener('ended', () => {
+      playAudios(); //calls function again
+    });
+    
+    ...
+   }
+   
+```
+<h1>Future improvements/features</h1>
+
+ - sync audio perfectly(no pauses)
+ - Add more rooms/beats
+ - make modal disapear when clicked on any part of screen
+ - allow user to play full beat on button click
+ - record button that records audio in real time and downloads the recording as mp3
