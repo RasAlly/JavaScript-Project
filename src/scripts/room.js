@@ -4,32 +4,32 @@ document.addEventListener("DOMContentLoaded", () => {
   //timer bar
   const timerBar = document.getElementById("timer-bar")
 
+  //mute btn
+  const mute_btn = document.getElementById('mute');
 
+  mute_btn.addEventListener('click', () => {
+    stopAll();
+  })
 
   //sliders
-
   const clockSlider = document.getElementById('clock-slider');
   const flowerSlider = document.getElementById('flower-slider');
   const chairSlider = document.getElementById('chair-slider');
-  const boardSlider = document.getElementById('board-slider');
   const lampSlider = document.getElementById('lamp-slider');
 
   let clockRange = document.getElementById('clock-range');
   let flowerRange = document.getElementById('flower-range');
   let chairRange = document.getElementById('chair-range');
-  let boardRange = document.getElementById('board-range');
   let lampRange = document.getElementById('lamp-range');
 
   let clockVolume = document.getElementById('clock-volume');
   let flowerVolume = document.getElementById('flower-volume');
   let chairVolume = document.getElementById('chair-volume');
-  let boardVolume = document.getElementById('board-volume');
   let lampVolume = document.getElementById('lamp-volume');
      
   clockVolume.innerHTML = clockRange.value;
   flowerVolume.innerHTML = flowerRange.value;
   chairVolume.innerHTML = chairRange.value;
-  boardVolume.innerHTML = boardRange.value;
   lampVolume.innerHTML = lampRange.value;
 
    const createVolumeSlide = (audio, objVolume, range) => {
@@ -42,40 +42,32 @@ document.addEventListener("DOMContentLoaded", () => {
   
   //audios
   const audios = [];
+
+  const lowerVolume = (audio) => {
+    audio.volume = .2;
+  }
   
   const Clock = document.getElementById('clock');
-  const clockAudio = new Audio('./public/music/rock_room_beats/rock_hat2.wav');
+  const clockAudio = new Audio('./public/music/chill_hip_hop/snare_kik.wav');
+  lowerVolume(clockAudio);
 
   const Flower = document.getElementById('flower-pot');
-  const flowerAudio = new Audio('./public/music/rock_room_beats/rock_kik.wav');
+  const flowerAudio = new Audio('./public/music/chill_hip_hop/synth_bell.wav');
+  lowerVolume(flowerAudio);
 
   const Chair = document.getElementById('chair');
-  const chairAudio = new Audio('./public/music/rock_room_beats/rock_pads.wav');
-  
-  const Board = document.getElementById('board-game');
-  const boardAudio = new Audio('./public/music/rock_room_beats/rock_hat2.wav');
+  const chairAudio = new Audio('./public/music/chill_hip_hop/synth_bass_final.wav');
+  lowerVolume(chairAudio);
 
   const Lamp = document.getElementById('lamp');
-  const lampAudio = new Audio('./public/music/rock_room_beats/rock_synth1.wav');
+  const lampAudio = new Audio('./public/music/chill_hip_hop/hat_vibes.wav');
+  lowerVolume(lampAudio);
   
+
   const stopPlaying = (audio) => {
     audio.pause();
     audio.currentTime = 0;
   }
-
-  
-  // const toggleProgressBar = timerBar.addEventListener("animationiteration", () => {
-  //   if (audios.length > 0 && !timerBar.classList.contains('play-animation')) {
-  //     timerBar.classList.add('play-animation');
-  //     return;
-      
-  //   } else if (audios.length > 0 && timerBar.classList.contains('play-animation')) {
-  //     return;
-  //   } else if (audios.length === 0) {
-  //     timerBar.classList.remove('play-animation');
-  //     return;
-  //   }
-  // })
 
   const toggleProgressBar = () => {
     if (audios.length > 0 && !timerBar.classList.contains('play-animation')) {
@@ -221,24 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  Board.addEventListener('click', () => {
-    const boardAudioObj = {audio: boardAudio, slider: boardSlider, objVolume: boardVolume, range: boardRange};
-
-    if (isInAudiosArr(boardAudioObj.audio)) {
-      removeFromArray(boardAudioObj);
-      stopPlaying(boardAudioObj.audio)
-      boardSlider.style.display = "none";
-      removeAnimation();
-      return;
-    }
-
-    if (audios.length === 0) {
-      audios.push(boardAudioObj);
-      playAudios();
-    } else {
-      audios.push(boardAudioObj);
-    }
-  });
 
   Lamp.addEventListener('click', () => {
     const lampAudioObj = {audio: lampAudio, slider: lampSlider, objVolume: lampVolume, range: lampRange};

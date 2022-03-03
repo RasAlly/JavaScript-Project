@@ -40,6 +40,49 @@ body h2::before, body h2 {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+body .modal-cont {
+  background-color: #000000;
+  opacity: 97%;
+  z-index: 1;
+  width: 64%;
+  height: 70%;
+  border-radius: 3%;
+  position: absolute;
+  top: 18%;
+  left: 23%;
+}
+body .modal-cont .modal {
+  color: #c0af8e;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+body .modal-cont #modal-title {
+  position: relative;
+  left: 24%;
+  font-size: 34px;
+}
+body .modal-cont #modal-para {
+  position: absolute;
+  top: 18%;
+  left: 10%;
+  width: 80%;
+  font-size: 24px;
+}
+body .modal-cont #close-btn {
+  position: absolute;
+  top: 69%;
+  left: 69%;
+  width: 20%;
+  color: blanchedalmond;
+  cursor: pointer;
+}
+body #instructions-btn {
+  position: absolute;
+  top: 85%;
+  left: 3%;
+  color: white;
+  background: linear-gradient(45deg, #00000082 18%, #7c737382 43%, #ffc8c852 43%);
+  cursor: pointer;
+}
 @keyframes animate {
   0%, 10%, 100% {
     width: 40%;
@@ -48,16 +91,13 @@ body h2::before, body h2 {
     width: 0%;
   }
 }
-body #blue {
-  display: flex;
-  flex-direction: row;
-  height: 10%;
-  width: 100%;
-}
-body #blue #title-background {
-  background-color: yellowgreen;
-  width: 20%;
-  height: 20%;
+body #mute {
+  position: absolute;
+  top: 94%;
+  left: 80%;
+  cursor: pointer;
+  background: rgba(238, 238, 238, 0.78);
+  color: black;
 }
 body #room-cont {
   display: block;
@@ -220,7 +260,6 @@ body #room-cont .room #board-game {
   position: absolute;
   top: 78%;
   left: 15%;
-  cursor: pointer;
 }
 body #room-cont .room #chair {
   height: 29%;

@@ -41,6 +41,54 @@ body {
     border-bottom-right-radius: 10px;
   }
   
+  .modal-cont {
+    background-color: #000000;
+    opacity: 97%;
+    z-index: 1;
+    width: 64%;
+    height: 70%;
+    border-radius: 3%;
+    position: absolute;
+    top: 18%;
+    left: 23%;
+
+    .modal {
+      color: rgb(192, 175, 142);
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    #modal-title {
+      position: relative;
+      left: 24%;
+      font-size: 34px;
+    }
+
+    #modal-para {
+      position: absolute;
+      top: 18%;
+      left: 10%;
+      width: 80%;
+      font-size: 24px;
+    }
+
+    #close-btn {
+      position: absolute;
+      top: 69%;
+      left: 69%;
+      width: 20%;
+      color: blanchedalmond;
+      cursor: pointer;
+    }
+  }
+  
+  #instructions-btn {
+    position: absolute;
+    top: 85%;
+    left: 3%;
+    color: white;
+    background: linear-gradient(45deg, #00000082 18%, #7c737382 43%, #ffc8c852 43%);
+    cursor: pointer;
+  }
 
   @keyframes animate 
   {
@@ -54,18 +102,13 @@ body {
     }
   }
 
-  #blue {
-    display: flex;
-    flex-direction: row;
-    height: 10%;
-    width: 100%;
-
-    #title-background {
-      background-color: yellowgreen;
-      width: 20%;
-      height: 20%;
-    }
-    
+  #mute {
+    position: absolute;
+    top: 94%;
+    left: 80%;
+    cursor: pointer;
+    background: rgb(238 238 238 / 78%);
+    color: black;
   }
 
   #room-cont {
@@ -245,7 +288,6 @@ body {
           position: absolute;
           top: 78%;
           left: 15%;
-          cursor: pointer;
         }
 
         #chair {

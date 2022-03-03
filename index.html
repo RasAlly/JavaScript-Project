@@ -13,10 +13,22 @@
 <body>
   <h2 data-text="Beat Machine">Beat Machine</h2>
 
-    <div id="blue">
-      <div id="title-background"></div>
-
+  <button id="instructions-btn">Instructions</button>
+    <div class="modal-cont" id="modal_cont">
+      <div class="modal">
+        <h3 id="modal-title">Welcome to Beat Machine</h3>
+        <p id="modal-para"> A place where I showcase my music and you control it.
+          To get started, select a room. Each room is based on a music genre and is styled respectively.
+          Click on an item in the room - Note: not all items are clickable - the item will begin playing a loop.
+          the next one clicked won't play until the progress bar reaches the end. This is to ensure nothing gets played off beat!
+          Play around with the audio on the right side, Enjoy!
+        </p>
+        <!-- <button id="close-btn">Close</button> -->
+        <h4 id="close-btn">Click to Start</h4>
+      </div>
     </div>
+
+  <button id="mute">Mute</button>
     <div id="room-cont">
       <div id='left-of-room'>
           <section id="rooms-heading-select">SELECT</section>
@@ -59,23 +71,19 @@
 
       <div class="slider-list-cont">
         <div class="slider-cont" id="clock-slider">
-          <input type="range" min="0" max="100" value="50" id="clock-range" class="slider"/>
+          <input type="range" min="0" max="100" value="20" id="clock-range" class="slider"/>
           <p>clock volume: <span class="volume" id="clock-volume"></span></p>
         </div>
         <div class="slider-cont" id="flower-slider">
-          <input type="range" min="0" max="100" value="50" id="flower-range" class="slider"/>
+          <input type="range" min="0" max="100" value="20" id="flower-range" class="slider"/>
           <p>flower volume: <span class="volume" id="flower-volume"></span></p>
         </div>
         <div class="slider-cont" id="chair-slider">
-          <input type="range" min="0" max="100" value="50" id="chair-range" class="slider"/>
+          <input type="range" min="0" max="100" value="20" id="chair-range" class="slider"/>
           <p>chair volume: <span class="volume" id="chair-volume"></span></p>
         </div>
-        <div class="slider-cont" id="board-slider">
-          <input type="range" min="0" max="100" value="50" id="board-range" class="slider"/>
-          <p>board volume: <span class="volume" id="board-volume"></span></p>
-        </div>
         <div class="slider-cont" id="lamp-slider">
-          <input type="range" min="0" max="100" value="50" id="lamp-range" class="slider"/>
+          <input type="range" min="0" max="100" value="20" id="lamp-range" class="slider"/>
           <p>lamp volume: <span class="volume" id="lamp-volume"></span></p>
         </div>
       </div>
