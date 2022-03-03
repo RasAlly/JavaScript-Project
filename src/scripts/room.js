@@ -2,14 +2,7 @@ export let stopAll;
 document.addEventListener("DOMContentLoaded", () => {
 
   //timer bar
-  const timerBar = document.getElementById("timer-bar")
-
-  //mute btn
-  const mute_btn = document.getElementById('mute');
-
-  mute_btn.addEventListener('click', () => {
-    stopAll();
-  })
+  const timerBar = document.getElementById("timer-bar");
 
   //sliders
   const clockSlider = document.getElementById('clock-slider');
@@ -92,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const objVolume = ele.objVolume;
       const range = ele.range;
       audio.play();
-      console.log(audios.length);
+      console.log(audio.duration);
 
       range.oninput = function() {
         // console.log(this);
@@ -232,6 +225,29 @@ document.addEventListener("DOMContentLoaded", () => {
       audios.push(lampAudioObj);
     }
   });
+
+   //mute btn
+   const mute_btn = document.getElementById('mute');
+
+   let isMuteClicked = false;
+ 
+   mute_btn.addEventListener('click', () => {
+     if (!isMuteClicked){
+       for (let i = 0; i < audios.length; i++) {
+         const audio = audios[i].audio;
+           audio.volume = 0;
+       }
+         mute_btn.innerHTML = 'unmute';
+         isMuteClicked = true;
+         return;
+     }
+     for (let i = 0; i < audios.length; i++) {
+       const audio = audios[i].audio;
+         audio.volume = 0.2;
+     }
+       mute_btn.innerHTML = 'mute';
+       isMuteClicked = false;
+   })
 });
 
 // module.exports = {stopAllAudio: stopAll};

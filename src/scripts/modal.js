@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalCont = document.getElementById('modal_cont');
   const intructBtn = document.getElementById('instructions-btn')
 
+  const body = document.querySelector('body')
+
+
   closeBtn.addEventListener('click', () => {
     modalCont.style.display = 'none';
   })
@@ -13,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   intructBtn.addEventListener('click', () => {
+    // body.style.opacity = '0.1'
     modalCont.style.display = '';
+    // modalCont.style.opacity = '1';
   })
 })

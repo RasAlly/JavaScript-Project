@@ -198,7 +198,7 @@ body #room-cont #timer-bar-cont #timer-bar {
   width: 0;
 }
 body #room-cont #timer-bar-cont .play-animation {
-  animation: timer-animation 6.9s infinite;
+  animation: timer-animation 10.25s infinite;
 }
 body #room-cont #timer-bar-cont .no-width {
   background-color: #b46a48;

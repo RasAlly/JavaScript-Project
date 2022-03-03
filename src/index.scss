@@ -43,6 +43,7 @@ body {
   
   .modal-cont {
     background-color: #000000;
+    // opacity: '1';
     opacity: 97%;
     z-index: 1;
     width: 64%;
@@ -221,7 +222,7 @@ body {
       }
 
       .play-animation {
-        animation: timer-animation 6.9s infinite;
+        animation: timer-animation 10.25s infinite;
       }
 
       .no-width {
