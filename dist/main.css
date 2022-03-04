@@ -418,6 +418,13 @@ body #room-cont .slider-cont p .volume {
   font-weight: 800;
   font-size: 12px;
 }
+body #git-logo {
+  height: 8%;
+  width: 9%;
+  left: 1%;
+  top: 91%;
+  position: absolute;
+}
 
 /* .img1 {
   position: relative;
